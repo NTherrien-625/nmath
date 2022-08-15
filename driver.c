@@ -1,20 +1,16 @@
 #include <stdio.h>
 #include "nmath.h"
 
+// Trigonometric Functions
 void cos_functionality_test(void);
-
 void sin_functionality_test(void);
-
 void tan_functionality_test(void);
 
 void cosh_functionality_test(void);
 
 void exp_functionality_test(void);
-
 void frexp_functionality_test(void);
-
 void ldexp_functionality_test(void);
-
 void log_functionality_test(void);
 
 // Power Function Tests

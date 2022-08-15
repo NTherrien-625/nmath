@@ -163,7 +163,8 @@ double sqrt(double x) {
 }
 
 double cbrt(double x) {
-  // Get to the closest integer
+  if (x == 0)
+    return 0;
   int is_negative = 0;
   int counter = 0;
   int product = counter * counter * counter;
@@ -175,9 +176,16 @@ double cbrt(double x) {
     counter += 1;
     product = counter * counter * counter;
   }
+  counter -= 1;
+  double x0, x1;
+  x0 = counter;
+  for (int i = 0; i < 10; ++i) {
+    x1 = x0 - ((x0 * x0 * x0 - x) / (3 * x0 * x0));
+    x0 = x1;
+  }
   if (is_negative == 1)
-    return (-1 * (counter - 1));
-  return (counter - 1);
+    return (-1 * x1);
+  return x1;
 }
 
 double hypot(double x, double y) {

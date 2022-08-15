@@ -29,7 +29,7 @@ void lround_functionality_test(void);
 void llround_functionality_test(void);
 
 int main() {
-  sqrt_functionality_test();
+  cbrt_functionality_test();
 
   return 0;
 }

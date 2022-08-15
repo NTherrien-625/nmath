@@ -144,7 +144,8 @@ double pow(double base, double exponent) {
 }
 
 double sqrt(double x) {
-  // Get to the closest integer
+  if (x == 0)
+    return 0;
   int counter = 0;
   int product = counter * counter;
   while (x >= product) {
@@ -152,10 +153,13 @@ double sqrt(double x) {
     product = counter * counter;
   }
   counter -= 1;
+  double x0, x1;
+  x0 = counter;
   for (int i = 0; i < 10; ++i) {
-   x = 0.5 * (x + (counter / x));
+    x1 = x0 - ((x0 * x0 - x) / (x0 * 2));
+    x0 = x1;
   }
-  return x;
+  return x1;
 }
 
 double cbrt(double x) {

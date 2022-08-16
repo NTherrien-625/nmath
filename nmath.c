@@ -67,6 +67,8 @@ double sinh(double x) { return ((exp(x) - exp(-x)) / 2); }
 
 double tanh(double x) { return (sinh(x) / cosh(x)); }
 
+double acosh(double x) { return log(x + (sqrt(x - 1) * sqrt(x + 1))); }
+
 // Exponentiation Functions
 double exp(double x) {
   int center = (int) x;

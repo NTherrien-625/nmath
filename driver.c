@@ -9,7 +9,11 @@ void acos_functionality_test(void);
 void asin_functionality_test(void);
 void atan_functionality_test(void);
 
+// Hyperbolic Functions
 void cosh_functionality_test(void);
+void sinh_functionality_test(void);
+void tanh_functionality_test(void);
+void acosh_functionality_test(void);
 
 void exp_functionality_test(void);
 void frexp_functionality_test(void);
@@ -32,11 +36,12 @@ void lround_functionality_test(void);
 void llround_functionality_test(void);
 
 int main() {
-  atan_functionality_test();
+  acosh_functionality_test();
 
   return 0;
 }
 
+// Trigonometric Functions
 void cos_functionality_test(void) {
   for (int i = -6; i < 7; ++i)
     fprintf(stdout, "cos(%i) = %f\n", i, cos(i));
@@ -67,9 +72,26 @@ void atan_functionality_test(void) {
     fprintf(stdout, "arctan(%f) = %f\n", i, atan(i));
 }
 
+
+// Hyperbolic Function
 void cosh_functionality_test(void) {
   for (int i = -10; i < 11; ++i)
     fprintf(stdout, "cosh(%i) = %f\n", i, cosh(i));
+}
+
+void sinh_functionality_test(void) {
+  for (int i = -10; i < 11; ++i)
+    fprintf(stdout, "cosh(%i) = %f\n", i, sinh(i));
+}
+
+void tanh_functionality_test(void) {
+  for (int i = -10; i < 11; ++i)
+    fprintf(stdout, "cosh(%i) = %f\n", i, tanh(i));
+}
+
+void acosh_functionality_test(void) {
+  for (int i = 1; i < 11; ++i)
+    fprintf(stdout, "acosh(%i) = %f\n", i, acosh(i));
 }
 
 void exp_functionality_test(void) {

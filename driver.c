@@ -7,6 +7,7 @@ void sin_functionality_test(void);
 void tan_functionality_test(void);
 void acos_functionality_test(void);
 void asin_functionality_test(void);
+void atan_functionality_test(void);
 
 void cosh_functionality_test(void);
 
@@ -31,7 +32,7 @@ void lround_functionality_test(void);
 void llround_functionality_test(void);
 
 int main() {
-  asin_functionality_test();
+  atan_functionality_test();
 
   return 0;
 }
@@ -53,12 +54,17 @@ void tan_functionality_test(void) {
 
 void acos_functionality_test(void) {
   for (double i = -1; i < 1; i += 0.1)
-  fprintf(stdout, "arccos(%f) = %f\n", i, acos(i));
+    fprintf(stdout, "arccos(%f) = %f\n", i, acos(i));
 }
 
 void asin_functionality_test(void) {
   for (double i = -1; i < 1; i += 0.1)
-  fprintf(stdout, "arcsin(%f) = %f\n", i, asin(i));
+    fprintf(stdout, "arcsin(%f) = %f\n", i, asin(i));
+}
+
+void atan_functionality_test(void) {
+  for (double i = -1; i < 1; i += 0.1)
+    fprintf(stdout, "arctan(%f) = %f\n", i, atan(i));
 }
 
 void cosh_functionality_test(void) {

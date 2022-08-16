@@ -42,6 +42,24 @@ double asin(double x) {
   return x0;
 }
 
+double atan(double x) {
+  int odd = 3;
+  int is_negative = 1;
+  double rolling_sum = x;
+  for (int i = 0; i < 10; ++i) {
+    if (is_negative == 0) {
+      rolling_sum += (pow(x, odd) / odd);
+      is_negative = 1;
+    }
+    else {
+      rolling_sum -= (pow(x, odd) / odd);
+      is_negative = 0;
+    }
+    odd += 2;
+  }
+  return rolling_sum;
+}
+
 // Hyperbolic Functions
 double cosh(double x) { return ((exp(x) + exp(-x)) / 2); }
 

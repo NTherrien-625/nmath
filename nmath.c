@@ -32,6 +32,16 @@ double acos(double x) {
   return x0;
 }
 
+double asin(double x) {
+  double x0, x1;
+  x0 = x;
+  for (int i = 0; i < 10; ++i) {
+    x1 = (x0 - ((sin(x0) - x) / (cos(x0))));
+    x0 = x1;
+  }
+  return x0;
+}
+
 // Hyperbolic Functions
 double cosh(double x) { return ((exp(x) + exp(-x)) / 2); }
 

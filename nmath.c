@@ -22,6 +22,16 @@ double sin(double x) {
 
 double tan(double x) { return (sin(x) / cos(x)); }
 
+double acos(double x) {
+  double x0, x1;
+  x0 = ((-1 * x) + (PI / 2));
+  for (int i = 0; i < 10; ++i) {
+    x1 = (x0 - ((cos(x0) - x) / (-1 * sin(x0))));
+    x0 = x1;
+  }
+  return x0;
+}
+
 // Hyperbolic Functions
 double cosh(double x) { return ((exp(x) + exp(-x)) / 2); }
 

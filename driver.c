@@ -5,6 +5,7 @@
 void cos_functionality_test(void);
 void sin_functionality_test(void);
 void tan_functionality_test(void);
+void acos_functionality_test(void);
 
 void cosh_functionality_test(void);
 
@@ -29,7 +30,7 @@ void lround_functionality_test(void);
 void llround_functionality_test(void);
 
 int main() {
-  cbrt_functionality_test();
+  acos_functionality_test();
 
   return 0;
 }
@@ -47,6 +48,11 @@ void sin_functionality_test(void) {
 void tan_functionality_test(void) {
   for (int i = -6; i < 7; ++i)
     fprintf(stdout, "tan(%i) = %f\n", i, tan(i));
+}
+
+void acos_functionality_test(void) {
+  for (double i = -1; i < 1; i += 0.1)
+  fprintf(stdout, "arccos(%f) = %f\n", i, acos(i));
 }
 
 void cosh_functionality_test(void) {

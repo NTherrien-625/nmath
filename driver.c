@@ -14,6 +14,7 @@ void cosh_functionality_test(void);
 void sinh_functionality_test(void);
 void tanh_functionality_test(void);
 void acosh_functionality_test(void);
+void asinh_functionality_test(void);
 
 void exp_functionality_test(void);
 void frexp_functionality_test(void);
@@ -36,7 +37,7 @@ void lround_functionality_test(void);
 void llround_functionality_test(void);
 
 int main() {
-  acosh_functionality_test();
+  asinh_functionality_test();
 
   return 0;
 }
@@ -92,6 +93,11 @@ void tanh_functionality_test(void) {
 void acosh_functionality_test(void) {
   for (int i = 1; i < 11; ++i)
     fprintf(stdout, "acosh(%i) = %f\n", i, acosh(i));
+}
+
+void asinh_functionality_test(void) {
+  for (int i = -10; i < 11; ++i)
+    fprintf(stdout, "asinh(%i) = %f\n", i, asinh(i));
 }
 
 void exp_functionality_test(void) {

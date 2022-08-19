@@ -69,7 +69,7 @@ double acosh(double x);
 // asinh(x)
 // Input : A real number, x
 // Output : The area hyperbolic sine (inverse hyperbolic sine) of x
-double sinh(double x);
+double asinh(double x);
 
 // atanh(x)
 // Input : A real number x

@@ -38,7 +38,7 @@ void lround_functionality_test(void);
 void llround_functionality_test(void);
 
 int main() {
-  atanh_functionality_test();
+  ldexp_functionality_test();
 
   return 0;
 }
@@ -122,8 +122,11 @@ void frexp_functionality_test(void) {
 }
 
 void ldexp_functionality_test(void) {
-  double result = ldexp(3, 3);
-  fprintf(stdout, "%d = %d * 2^%d\n", result, 3, 3);
+  double result;
+  for (int i = 0; i < 10; ++i) {
+    result = ldexp(3, i);
+    fprintf(stdout, "%f = %d * 2^%d\n", result, 3, i);
+  }
 }
 
 void log_functionality_test(void) {

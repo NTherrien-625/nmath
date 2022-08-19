@@ -136,8 +136,6 @@ double frexp(double x, int* exp) {
 }
 
 double ldexp(double x, int exp) {
-  fprintf(stdout, "ldexp called from nmath\n");
-  fprintf(stdout, "x = %d, exp = %i\n", x, exp);
   return (x * pow(2, exp));
 }
 

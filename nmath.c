@@ -174,6 +174,10 @@ double log(double x) {
   return sum;
 }
 
+double log10(double x) {
+  return (log(x) / LN10);
+}
+
 double pow(double base, double exponent) {
   double integral_power = (int) exponent;
   double floating_power = exponent - integral_power;

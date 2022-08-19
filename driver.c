@@ -21,6 +21,7 @@ void exp_functionality_test(void);
 void frexp_functionality_test(void);
 void ldexp_functionality_test(void);
 void log_functionality_test(void);
+void log10_functionality_test(void);
 
 // Power Function Tests
 void pow_functionality_test(void);
@@ -38,7 +39,7 @@ void lround_functionality_test(void);
 void llround_functionality_test(void);
 
 int main() {
-  ldexp_functionality_test();
+  log10_functionality_test();
 
   return 0;
 }
@@ -131,7 +132,12 @@ void ldexp_functionality_test(void) {
 
 void log_functionality_test(void) {
   for (int i = 0; i < 10; ++i)
-    fprintf(stdout, "ln(%i) = %f\n\n", i, log(i));
+    fprintf(stdout, "ln(%i) = %f\n", i, log(i));
+}
+
+void log10_functionality_test(void) {
+  for (int i = 0; i < 10; ++i)
+    fprintf(stdout, "ln10(%i) = %f\n", i, log10(i));
 }
 
 void pow_functionality_test(void) {

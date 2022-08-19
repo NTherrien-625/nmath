@@ -77,6 +77,10 @@ double asinh(double x) {
   return log(x + sqrt(x * x + 1));
 }
 
+double atanh(double x) {
+  return (0.5 * log((1 + x) / (1 - x)));
+}
+
 // Exponentiation Functions
 double exp(double x) {
   int center = (int) x;

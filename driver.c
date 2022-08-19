@@ -15,6 +15,7 @@ void sinh_functionality_test(void);
 void tanh_functionality_test(void);
 void acosh_functionality_test(void);
 void asinh_functionality_test(void);
+void atanh_functionality_test(void);
 
 void exp_functionality_test(void);
 void frexp_functionality_test(void);
@@ -37,7 +38,7 @@ void lround_functionality_test(void);
 void llround_functionality_test(void);
 
 int main() {
-  asinh_functionality_test();
+  atanh_functionality_test();
 
   return 0;
 }
@@ -73,7 +74,6 @@ void atan_functionality_test(void) {
     fprintf(stdout, "arctan(%f) = %f\n", i, atan(i));
 }
 
-
 // Hyperbolic Function
 void cosh_functionality_test(void) {
   for (int i = -10; i < 11; ++i)
@@ -98,6 +98,11 @@ void acosh_functionality_test(void) {
 void asinh_functionality_test(void) {
   for (int i = -10; i < 11; ++i)
     fprintf(stdout, "asinh(%i) = %f\n", i, asinh(i));
+}
+
+void atanh_functionality_test(void) {
+  for (double i = -0.9; i < 0.9; i += 0.1)
+    fprintf(stdout, "atanh(%f) = %f\n", i, atanh(i));
 }
 
 void exp_functionality_test(void) {

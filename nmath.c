@@ -186,6 +186,10 @@ double expm1(double x) {
   return (exp(x) - 1);
 }
 
+double log2(double x) {
+  return (log(x) / LN2);
+}
+
 double pow(double base, double exponent) {
   double integral_power = (int) exponent;
   double floating_power = exponent - integral_power;

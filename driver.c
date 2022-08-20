@@ -17,6 +17,7 @@ void acosh_functionality_test(void);
 void asinh_functionality_test(void);
 void atanh_functionality_test(void);
 
+// Exponential? Functions
 void exp_functionality_test(void);
 void frexp_functionality_test(void);
 void ldexp_functionality_test(void);
@@ -24,6 +25,7 @@ void log_functionality_test(void);
 void log10_functionality_test(void);
 void exp2_functionality_test(void);
 void expm1_functionality_test(void);
+void log2_functionality_test(void);
 
 // Power Function Tests
 void pow_functionality_test(void);
@@ -41,7 +43,7 @@ void lround_functionality_test(void);
 void llround_functionality_test(void);
 
 int main() {
-  expm1_functionality_test();
+  log2_functionality_test();
 
   return 0;
 }
@@ -108,6 +110,7 @@ void atanh_functionality_test(void) {
     fprintf(stdout, "atanh(%f) = %f\n", i, atanh(i));
 }
 
+// Exponential? 
 void exp_functionality_test(void) {
   for (int i = 0; i < 10; ++i)
     fprintf(stdout, "e^%i = %f\n", i, exp(i));
@@ -152,6 +155,12 @@ void expm1_functionality_test(void) {
     fprintf(stdout, "e^%i - 1 = %f\n", i, expm1(i));
 }
 
+void log2_functionality_test(void) {
+  for (int i = 0; i < 10; ++i)
+    fprintf(stdout, "log2(%i) = %f\n", i, log2(i));
+}
+
+// Power
 void pow_functionality_test(void) {
   for (int i = 0; i < 10; ++i)
     fprintf(stdout, "2^%i = %f\n", i, pow(2, i));

@@ -182,6 +182,10 @@ double exp2(double x) {
   return pow(2, x);
 }
 
+double expm1(double x) {
+  return (exp(x) - 1);
+}
+
 double pow(double base, double exponent) {
   double integral_power = (int) exponent;
   double floating_power = exponent - integral_power;

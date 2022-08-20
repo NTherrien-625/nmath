@@ -23,6 +23,7 @@ void ldexp_functionality_test(void);
 void log_functionality_test(void);
 void log10_functionality_test(void);
 void exp2_functionality_test(void);
+void expm1_functionality_test(void);
 
 // Power Function Tests
 void pow_functionality_test(void);
@@ -40,7 +41,7 @@ void lround_functionality_test(void);
 void llround_functionality_test(void);
 
 int main() {
-  exp2_functionality_test();
+  expm1_functionality_test();
 
   return 0;
 }
@@ -144,6 +145,11 @@ void log10_functionality_test(void) {
 void exp2_functionality_test(void) {
   for (int i = 0; i < 10; ++i)
     fprintf(stdout, "2^%d = %f\n", i, exp2(i));
+}
+
+void expm1_functionality_test(void) {
+  for (int i = 0; i < 10; ++i)
+    fprintf(stdout, "e^%i - 1 = %f\n", i, expm1(i));
 }
 
 void pow_functionality_test(void) {

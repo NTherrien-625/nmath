@@ -190,22 +190,17 @@ double log2(double x) {
   return (log(x) / LN2);
 }
 
+// Power Functions
 double pow(double base, double exponent) {
   double integral_power = (int) exponent;
   double floating_power = exponent - integral_power;
   double integral_component, floating_component;
-
-  // Integral part
   integral_component = 1;
   for (int i = 0; i < integral_power; ++i)
     integral_component *= base;
-
   if (floating_power == 0)
     return integral_component;
-
-  // Floating part
   floating_component = exp(floating_power * log(base));
-
   return integral_component * floating_component;
 }
 
@@ -259,6 +254,24 @@ double hypot(double x, double y) {
 }
 
 // Error and Gamma Functions
+double erf(double x) {
+  int is_negative = 1;
+  double sum = x;
+  int rolling_denominator = 1;
+  for (int i = 1; i < 10; ++i) {
+    rolling_denominator *= i;
+    if (is_negative == 1) {
+      sum -= (pow(x,2*i + 1) / (rolling_denominator * (2*i + 1)));
+      is_negative = 0;
+    }
+    else {
+      sum += (pow(x,2*i + 1) / (rolling_denominator * (2*i + 1)));
+      is_negative = 1;
+    }
+  }
+  return ((2/sqrt(PI)) * sum);
+}
+
 double tgamma(double x) {
   double rolling_product = 1;
   for (int i = 2; i <= x; ++i)

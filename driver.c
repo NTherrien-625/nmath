@@ -33,7 +33,10 @@ void sqrt_functionality_test(void);
 void cbrt_functionality_test(void);
 void hypot_functionality_test(void);
 
-// Rounding and remainder tests
+// Error and Gamma Function Tests
+void erf_functionality_test(void);
+
+// Rounding and remainder Tests
 void ceil_functionality_test(void);
 void floor_functionality_test(void);
 void fmod_functionality_test(void);
@@ -43,7 +46,7 @@ void lround_functionality_test(void);
 void llround_functionality_test(void);
 
 int main() {
-  log2_functionality_test();
+  erf_functionality_test();
 
   return 0;
 }
@@ -182,6 +185,12 @@ void hypot_functionality_test(void) {
   fprintf(stdout, "3, 4, %f\n", hypot(3, 4));
   fprintf(stdout, "5, 12, %f\n", hypot(5, 12));
   fprintf(stdout, "7, 24, %f\n", hypot(7, 24));
+}
+
+// Error and Gamma 
+void erf_functionality_test(void) {
+  for (int i = -2; i < 3; ++i)
+    fprintf(stdout, "erf(%i) = %f\n", i, erf(i));
 }
 
 void ceil_functionality_test(void) {

@@ -263,6 +263,4 @@ long long int llrint(double x);
 // Output : Rounds x to the nearest integer, direction specified by fegetround()
 double nearbyint(double x);
 
-
-
 #endif

@@ -69,7 +69,7 @@ double acosh(double x);
 // asinh(x)
 // Input : A real number, x
 // Output : The area hyperbolic sine (inverse hyperbolic sine) of x
-double sinh(double x);
+double asinh(double x);
 
 // atanh(x)
 // Input : A real number x
@@ -262,7 +262,5 @@ long long int llrint(double x);
 // Input : A real number, x
 // Output : Rounds x to the nearest integer, direction specified by fegetround()
 double nearbyint(double x);
-
-
 
 #endif

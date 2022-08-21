@@ -22,12 +22,64 @@ double sin(double x) {
 
 double tan(double x) { return (sin(x) / cos(x)); }
 
+double acos(double x) {
+  double x0, x1;
+  x0 = ((-1 * x) + (PI / 2));
+  for (int i = 0; i < 10; ++i) {
+    x1 = (x0 - ((cos(x0) - x) / (-1 * sin(x0))));
+    x0 = x1;
+  }
+  return x0;
+}
+
+double asin(double x) {
+  double x0, x1;
+  x0 = x;
+  for (int i = 0; i < 10; ++i) {
+    x1 = (x0 - ((sin(x0) - x) / (cos(x0))));
+    x0 = x1;
+  }
+  return x0;
+}
+
+double atan(double x) {
+  int odd = 3;
+  int is_negative = 1;
+  double rolling_sum = x;
+  for (int i = 0; i < 10; ++i) {
+    if (is_negative == 0) {
+      rolling_sum += (pow(x, odd) / odd);
+      is_negative = 1;
+    }
+    else {
+      rolling_sum -= (pow(x, odd) / odd);
+      is_negative = 0;
+    }
+    odd += 2;
+  }
+  return rolling_sum;
+}
+
 // Hyperbolic Functions
 double cosh(double x) { return ((exp(x) + exp(-x)) / 2); }
 
 double sinh(double x) { return ((exp(x) - exp(-x)) / 2); }
 
 double tanh(double x) { return (sinh(x) / cosh(x)); }
+
+double acosh(double x) { return log(x + (sqrt(x - 1) * sqrt(x + 1))); }
+
+double asinh(double x) { 
+  if (x < 0) {
+    x *= -1;
+    return (-1 * log(x + sqrt(x * x + 1)));
+  } 
+  return log(x + sqrt(x * x + 1));
+}
+
+double atanh(double x) {
+  return (0.5 * log((1 + x) / (1 - x)));
+}
 
 // Exponentiation Functions
 double exp(double x) {
@@ -84,8 +136,6 @@ double frexp(double x, int* exp) {
 }
 
 double ldexp(double x, int exp) {
-  fprintf(stdout, "ldexp called from nmath\n");
-  fprintf(stdout, "x = %d, exp = %i\n", x, exp);
   return (x * pow(2, exp));
 }
 
@@ -124,27 +174,39 @@ double log(double x) {
   return sum;
 }
 
+double log10(double x) {
+  return (log(x) / LN10);
+}
+
+double exp2(double x) {
+  return pow(2, x);
+}
+
+double expm1(double x) {
+  return (exp(x) - 1);
+}
+
+double log2(double x) {
+  return (log(x) / LN2);
+}
+
+// Power Functions
 double pow(double base, double exponent) {
   double integral_power = (int) exponent;
   double floating_power = exponent - integral_power;
   double integral_component, floating_component;
-
-  // Integral part
   integral_component = 1;
   for (int i = 0; i < integral_power; ++i)
     integral_component *= base;
-
   if (floating_power == 0)
     return integral_component;
-
-  // Floating part
   floating_component = exp(floating_power * log(base));
-
   return integral_component * floating_component;
 }
 
 double sqrt(double x) {
-  // Get to the closest integer
+  if (x == 0)
+    return 0;
   int counter = 0;
   int product = counter * counter;
   while (x >= product) {
@@ -152,14 +214,18 @@ double sqrt(double x) {
     product = counter * counter;
   }
   counter -= 1;
+  double x0, x1;
+  x0 = counter;
   for (int i = 0; i < 10; ++i) {
-   x = 0.5 * (x + (counter / x));
+    x1 = x0 - ((x0 * x0 - x) / (x0 * 2));
+    x0 = x1;
   }
-  return x;
+  return x1;
 }
 
 double cbrt(double x) {
-  // Get to the closest integer
+  if (x == 0)
+    return 0;
   int is_negative = 0;
   int counter = 0;
   int product = counter * counter * counter;
@@ -171,9 +237,16 @@ double cbrt(double x) {
     counter += 1;
     product = counter * counter * counter;
   }
+  counter -= 1;
+  double x0, x1;
+  x0 = counter;
+  for (int i = 0; i < 10; ++i) {
+    x1 = x0 - ((x0 * x0 * x0 - x) / (3 * x0 * x0));
+    x0 = x1;
+  }
   if (is_negative == 1)
-    return (-1 * (counter - 1));
-  return (counter - 1);
+    return (-1 * x1);
+  return x1;
 }
 
 double hypot(double x, double y) {
@@ -181,6 +254,24 @@ double hypot(double x, double y) {
 }
 
 // Error and Gamma Functions
+double erf(double x) {
+  int is_negative = 1;
+  double sum = x;
+  int rolling_denominator = 1;
+  for (int i = 1; i < 10; ++i) {
+    rolling_denominator *= i;
+    if (is_negative == 1) {
+      sum -= (pow(x,2*i + 1) / (rolling_denominator * (2*i + 1)));
+      is_negative = 0;
+    }
+    else {
+      sum += (pow(x,2*i + 1) / (rolling_denominator * (2*i + 1)));
+      is_negative = 1;
+    }
+  }
+  return ((2/sqrt(PI)) * sum);
+}
+
 double tgamma(double x) {
   double rolling_product = 1;
   for (int i = 2; i <= x; ++i)
